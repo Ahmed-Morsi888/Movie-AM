@@ -16,6 +16,7 @@ interface Movie {
   title: string;
   poster_path: string;
 }
+// my apiKey=36c6571ee9630f7ef210ff6e10a0078d
 
 export default function SwiperComponent({ baseurl, header, page = 1 }: Propertise) {
   const [movies, setMovies] = useState<Movie[]>([]);

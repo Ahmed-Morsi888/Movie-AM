@@ -1,8 +1,10 @@
+
 import Image from 'next/image';
 import React from "react";
 import { FaStar } from 'react-icons/fa';
 import SmallSwiper from "./SmallSwiper";
 import Link from 'next/link';
+import ReviewsList from '@/app/Component/ReviewList';
 interface Props {
   params: {
     movieId: string
@@ -14,7 +16,12 @@ async function MovieId({params}: Props) {
     console.log(data);
      
      const img=await fetch(`https://api.themoviedb.org/3/movie/${params.movieId}/images?api_key=a5c13fc09b1950b338b046e79ea8e6b1`);
-    const imgData= await img.json();    
+    const imgData= await img.json(); 
+    const reviews = await fetch(
+  `https://api.themoviedb.org/3/movie/${params.movieId}/reviews?api_key=a5c13fc09b1950b338b046e79ea8e6b1`
+);
+const reviewsData = await reviews.json();
+   
   return (
 <div className='w-full h-full bg-gray-900 pt-4 pb-4'>
     <div className=' mx-auto min-h-[26rem] flex justify-between items-center  gap-4 '>
@@ -23,8 +30,12 @@ async function MovieId({params}: Props) {
         <h1 className='text-white text-2xl font-bold '>{data.title}</h1>
         </div>
         <div className='flex ms-2'>
-        <p className='text-gray-300 font-bold text-md mt-2'>
-          <span >{data.release_date.slice(0, 4)} . </span>{ data.status.slice(0,1).toUpperCase()} . <span>{Math.floor(data.runtime / 60)}h {data.runtime % 60}m</span></p>   
+        <p className="text-gray-300">
+  <span>{data.release_date?.slice(0, 4)}</span> . 
+  <span>{data.status?.slice(0, 1).toUpperCase()}</span> . 
+  <span>{Math.floor(data.runtime / 60)}h {data.runtime % 60}m</span>
+</p>
+
           </div>
                      <div className="relative  w-full h-84">
                     <Image
@@ -36,7 +47,7 @@ async function MovieId({params}: Props) {
                     />
                   </div>
                   </div>
-                  <div className=' w-1/2'>
+                  <div className=' w-1/2 mt-16'>
                     <div >
                     <h2 className='text-gray-300 text-md font-bold py-2  bg-gray-800 rounded-lg p-2 mb-2'>{data.overview}</h2>
                     
@@ -138,8 +149,72 @@ async function MovieId({params}: Props) {
 </div>
   </div>
     </div>
+    <ReviewsList reviews={reviewsData.results} />
     </div>
   )
 }
 
 export default MovieId
+{/* <div className="p-4">
+  <h2 className='font-bold my-2 text-xl'>Reviews</h2>
+
+  {reviewsData.results.length > 0 ? (
+    reviewsData.results.map((review: any) => {
+      const [showFull, setShowFull] = useState(false);
+      const MAX_LENGTH = 200;
+
+      const isLong = review.content.length > MAX_LENGTH;
+      const displayedText = showFull
+        ? review.content
+        : review.content.slice(0, MAX_LENGTH);
+
+      return (
+        <div className='w-full flex justify-center' key={review.id}>
+          <div className="flex gap-3 mb-4 bg-gray-700 p-4 rounded-lg w-[90rem]">
+            
+            <div className="w-[50px] h-[50px] rounded-lg bg-gray-300 text-black text-center text-3xl flex items-center justify-center font-bold">
+              {review.author && review.author[0]}
+            </div>
+
+            <div className="flex flex-col">
+              
+              <h2 className="font-semibold text-xl text-gray-100">
+                {review.author}
+              </h2>
+
+              <span className='text-gray-200 mb-2'>
+                {new Date(review.created_at).toLocaleDateString("en-GB", {
+                  day: "numeric",
+                  month: "short",
+                  year: "numeric"
+                }).replace(/,/g, "")}
+              </span>
+
+              <p className="text-m text-gray-300 max-w-[1400px]">
+                {displayedText}
+                {!showFull && isLong && "…"}
+              </p>
+
+              {isLong && (
+                <button
+                  className="text-blue-400 mt-2 hover:underline w-fit"
+                  onClick={() => setShowFull(!showFull)}
+                >
+                  {showFull ? "Show less" : "See all"}
+                </button>
+              )}
+
+            </div>
+
+          </div>
+        </div>
+      );
+    })
+  ) : (
+    <div>No Reviews found</div>
+  )}
+</div> */}
+
+
+
+

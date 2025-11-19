@@ -5,7 +5,7 @@ import { AiFillTikTok } from "react-icons/ai"
 import { FaXTwitter } from "react-icons/fa6";
 export const Fotter = () => {
   return <> 
-  <footer className='w-full mx-auto  flex flex-col bg-gray-800 pt-[20px]'>
+  <footer className='mt-auto w-full mx-auto  flex flex-col bg-gray-800 pt-[20px]'>
     
     <ul className='flex justify-center items-center gap-6 font-medium text-md text-white'>
             <li className='hover:text-gray-400'> <Link href="/">Home</Link></li>
