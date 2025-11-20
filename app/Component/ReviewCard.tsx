@@ -42,5 +42,6 @@ export default function ReviewCard({ review }: any) {
         </div>
       </div>
     </div>
+    
   );
 }

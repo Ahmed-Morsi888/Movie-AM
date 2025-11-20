@@ -4,7 +4,7 @@ import React from "react";
 import { FaStar } from 'react-icons/fa';
 import SmallSwiper from "./SmallSwiper";
 import Link from 'next/link';
-import ReviewsList from '@/app/Component/ReviewList';
+import FirstReview from '@/app/Component/FirstReview';
 interface Props {
   params: {
     movieId: string
@@ -13,7 +13,6 @@ interface Props {
 async function MovieId({params}: Props) {
     const res=await fetch(`https://api.themoviedb.org/3/movie/${params.movieId}?api_key=a5c13fc09b1950b338b046e79ea8e6b1`);
     const data= await res.json();   
-    console.log(data);
      
      const img=await fetch(`https://api.themoviedb.org/3/movie/${params.movieId}/images?api_key=a5c13fc09b1950b338b046e79ea8e6b1`);
     const imgData= await img.json(); 
@@ -66,15 +65,15 @@ const reviewsData = await reviews.json();
                       <span className="text-white  bg-gray-800 rounded-lg p-2 mb-2">
     Budget :{" "}
     <span className="text-gray-300">
-      {/* {data.budget >= 1000000
+       {data.budget >= 1000000
         ? `${(data.budget / 1000000).toFixed(1)} M`
         : data.budget >= 1000
         ? `${(data.budget / 1000).toFixed(0)} K`
         : data.budget}
-      $ */}
-      {
+      $ 
+      {/* {
   new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(data.budget)
-}
+} */}
 
     </span>
   </span>
@@ -82,15 +81,17 @@ const reviewsData = await reviews.json();
   <span className="text-white bg-gray-800 rounded-lg p-2 mb-2">
     Revenue :{" "}
     <span className="text-gray-300  ">
-{
+{/* {
   new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(data.revenue)
-}
-      {/* {data.revenue >= 1000000
+} */}
+       {data.revenue >= 1000000000
+        ? `${(data.revenue / 1000000000).toFixed(1)} B`
+        :data.revenue >= 1000000
         ? `${(data.revenue / 1000000).toFixed(1)} M`
         : data.revenue >= 1000
         ? `${(data.revenue / 1000).toFixed(0)} K`
         : data.revenue}
-      $ */}
+      $ 
     </span>
   </span>
   </h2>
@@ -149,71 +150,20 @@ const reviewsData = await reviews.json();
 </div>
   </div>
     </div>
-    <ReviewsList reviews={reviewsData.results} />
+    <FirstReview reviews={reviewsData.results} />
+ {reviewsData.results?.length > 1 && (
+  <Link href={`/Reviews/${params.movieId}`} className="text-blue-400  mt-2 block">
+    See all comments
+  </Link>
+)}
+
+
     </div>
   )
 }
 
 export default MovieId
-{/* <div className="p-4">
-  <h2 className='font-bold my-2 text-xl'>Reviews</h2>
 
-  {reviewsData.results.length > 0 ? (
-    reviewsData.results.map((review: any) => {
-      const [showFull, setShowFull] = useState(false);
-      const MAX_LENGTH = 200;
-
-      const isLong = review.content.length > MAX_LENGTH;
-      const displayedText = showFull
-        ? review.content
-        : review.content.slice(0, MAX_LENGTH);
-
-      return (
-        <div className='w-full flex justify-center' key={review.id}>
-          <div className="flex gap-3 mb-4 bg-gray-700 p-4 rounded-lg w-[90rem]">
-            
-            <div className="w-[50px] h-[50px] rounded-lg bg-gray-300 text-black text-center text-3xl flex items-center justify-center font-bold">
-              {review.author && review.author[0]}
-            </div>
-
-            <div className="flex flex-col">
-              
-              <h2 className="font-semibold text-xl text-gray-100">
-                {review.author}
-              </h2>
-
-              <span className='text-gray-200 mb-2'>
-                {new Date(review.created_at).toLocaleDateString("en-GB", {
-                  day: "numeric",
-                  month: "short",
-                  year: "numeric"
-                }).replace(/,/g, "")}
-              </span>
-
-              <p className="text-m text-gray-300 max-w-[1400px]">
-                {displayedText}
-                {!showFull && isLong && "…"}
-              </p>
-
-              {isLong && (
-                <button
-                  className="text-blue-400 mt-2 hover:underline w-fit"
-                  onClick={() => setShowFull(!showFull)}
-                >
-                  {showFull ? "Show less" : "See all"}
-                </button>
-              )}
-
-            </div>
-
-          </div>
-        </div>
-      );
-    })
-  ) : (
-    <div>No Reviews found</div>
-  )}
-</div> */}
 
 
 
