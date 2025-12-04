@@ -7,17 +7,17 @@ import Link from 'next/link';
 import FirstReview from '@/app/Component/FirstReview';
 interface Props {
   params: {
-    movieId: string
+    seriesId: string
   }
 }
-async function MovieId({params}: Props) {
-    const res=await fetch(`https://api.themoviedb.org/3/movie/${params.movieId}?api_key=a5c13fc09b1950b338b046e79ea8e6b1`);
+async function SeriesID({params}: Props) {
+    const res=await fetch(`https://api.themoviedb.org/3/tv/${params.seriesId}?api_key=a5c13fc09b1950b338b046e79ea8e6b1`);
     const data= await res.json();   
      
-     const img=await fetch(`https://api.themoviedb.org/3/movie/${params.movieId}/images?api_key=a5c13fc09b1950b338b046e79ea8e6b1`);
+     const img=await fetch(`https://api.themoviedb.org/3/tv/${params.seriesId}/images?api_key=a5c13fc09b1950b338b046e79ea8e6b1`);
     const imgData= await img.json(); 
     const reviews = await fetch(
-  `https://api.themoviedb.org/3/movie/${params.movieId}/reviews?api_key=a5c13fc09b1950b338b046e79ea8e6b1`
+  `https://api.themoviedb.org/3/tv/${params.seriesId}/reviews?api_key=a5c13fc09b1950b338b046e79ea8e6b1`
 );
 const reviewsData = await reviews.json();
    
@@ -150,22 +150,19 @@ const reviewsData = await reviews.json();
 </div>
   </div>
     </div>
-    <div className='w-full  flex flex-col items-center '>
-
     <FirstReview reviews={reviewsData.results} />
  {reviewsData.results?.length > 1 && (
-   <Link href={`/Reviews/${params.movieId}`} className="text-blue-400  mt-2  px-4">
+  <Link href={`/Reviews/${params.seriesId}`} className="text-blue-400  mt-2 block">
     See all comments
   </Link>
 )}
 
-</div>
 
     </div>
   )
 }
 
-export default MovieId
+export default SeriesID
 
 
 

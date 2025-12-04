@@ -52,7 +52,7 @@ export default function SwiperComponent({ baseurl, header, page = 1 }: Propertis
         navigation
         loop={true}
         breakpoints={{
-          320: { slidesPerView: 3 },
+          320: { slidesPerView: 2},
           640: { slidesPerView: 5 },
           1024: { slidesPerView: 6 },
           1440: { slidesPerView: 8},

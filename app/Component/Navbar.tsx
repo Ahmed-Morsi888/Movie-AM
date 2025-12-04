@@ -8,9 +8,9 @@ import { usePathname } from 'next/navigation';
   const naveLinks=[
     {name:"Home",href:"/"},
     {name:"Movies",href:"/movies"},
-    {name:"Popular",href:"/popular"},
-    {name:"My List",href:"/my-list"},
     {name:"Series",href:"/series"},
+    {name:"Popular",href:"/popular"},
+    {name:"My List",href:"/my-list"}
   ]
   const pathname=usePathname();
   return <>

@@ -23,8 +23,8 @@ export const Fotter = () => {
     <  AiFillTikTok  className='text-3xl cursor-pointer font-bold text-white'/>
     <FaXTwitter className='text-3xl cursor-pointer font-bold text-white'/>
     </div>
-    <div className='mt-[20px] pb-[20px] text-medium text-gray-400 w-full  flex justify-center text-center '>
-        <p className='w-[40%]'>
+    <div className='mt-[20px] pb-[20px] text-medium text-gray-400 full  flex justify-center text-center '>
+        <p className='w-full px-2 md:px-0 md:w-[40%]'>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti adipisci numquam, possimus similique provident aperiam quam ratione odit sed animi, labore, dolor temporibus
 
         </p>

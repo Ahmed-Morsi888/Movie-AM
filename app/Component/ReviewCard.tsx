@@ -10,8 +10,8 @@ export default function ReviewCard({ review }: any) {
 
   return (
     <div className='w-full flex justify-center'>
-      <div className="flex gap-3 mb-4 bg-gray-700 p-4 rounded-lg w-[90rem]">
-        <div className="w-[50px] h-[50px] rounded-lg bg-gray-300 text-black text-center text-3xl flex items-center justify-center font-bold">
+      <div className="flex gap-3 mb-4 bg-gray-700 p-4 rounded-lg w-full md:w-[80rem]">
+        <div className="min-w-[50px] h-[50px] rounded-lg bg-gray-300 text-black text-center text-3xl flex items-center justify-center font-bold">
           {review.author && review.author[0]}
         </div>
 
