@@ -150,13 +150,16 @@ const reviewsData = await reviews.json();
 </div>
   </div>
     </div>
+       <div className='w-full  flex flex-col items-center '>
+
     <FirstReview reviews={reviewsData.results} />
  {reviewsData.results?.length > 1 && (
-  <Link href={`/Reviews/${params.seriesId}`} className="text-blue-400  mt-2 block">
+   <Link href={`/Reviews/${params.seriesId}`} className="text-blue-400  mt-2  px-4">
     See all comments
   </Link>
 )}
 
+</div>
 
     </div>
   )

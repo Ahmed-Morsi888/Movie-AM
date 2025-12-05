@@ -14,7 +14,7 @@ async function Page({ params }: Props) {
 return(<div className="p-4">
         <h2 className='font-bold my-2 text-xl text-white'>Reviews</h2>
  
-        {reviewsData.results.length > 0 ? (
+        {reviewsData.results?.length > 0 ? (
           reviewsData.results.map((review: any) => (
             <ReviewCard key={review.id} review={review} />
           ))

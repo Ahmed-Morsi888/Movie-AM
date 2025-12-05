@@ -5,24 +5,24 @@ import Link from "next/link";
 
 async function Movies({ searchParams }: any) {
   const type = searchParams?.type || "popular";
-
+const page=Number(searchParams?.page) || 1;   
   let data;
 
   if (type === "trending") {
     const res = await fetch(
-      `https://api.themoviedb.org/3/trending/movie/day?api_key=a5c13fc09b1950b338b046e79ea8e6b1&language=en-US`
+      `https://api.themoviedb.org/3/trending/movie/day?api_key=a5c13fc09b1950b338b046e79ea8e6b1&language=en-US&page=${page}`
     );
     data = await res.json();
   } 
   else if (type === "discover") {
     const res = await fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=a5c13fc09b1950b338b046e79ea8e6b1&page=1&language=en-US`
+      `https://api.themoviedb.org/3/discover/movie?api_key=a5c13fc09b1950b338b046e79ea8e6b1&language=en-US&page=${page}`
     );
     data = await res.json();
   } 
   else {
     const res = await fetch(
-      `https://api.themoviedb.org/3/movie/${type}?api_key=a5c13fc09b1950b338b046e79ea8e6b1&page=1&language=en-US`
+      `https://api.themoviedb.org/3/movie/${type}?api_key=a5c13fc09b1950b338b046e79ea8e6b1&language=en-US&page=${page}`
     );
     data = await res.json();
   }
@@ -51,6 +51,29 @@ async function Movies({ searchParams }: any) {
           </Link>
         ))}
       </div>
+       <div className="flex justify-center items-center gap-4 my-4 rounded-lg">
+
+      
+      {page > 1 && (
+        <a
+          href={`/movies?&type=${type}&page=${page - 1}`}
+          className="px-4 py-2 bg-gray-400 text-black rounded-lg"
+        >
+          Previous
+        </a>
+      )}
+
+      
+      <span className="font-semibold">{page}</span>
+
+      
+      <a
+        href={`/movies?&type=${type}&page=${page + 1}`}
+        className="px-4 py-2 bg-gray-400 text-black rounded-lg"
+      >
+        Next
+      </a>
+    </div>
     </div>
   )
 }

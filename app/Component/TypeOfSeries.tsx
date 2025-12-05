@@ -13,7 +13,9 @@ function TypeOfSeries({classname}:{classname?:string}) {
     let router = useRouter();
 
     let params=useSearchParams();
+    
     let type=params.get('type')||"discover";
+    
     const handelChangeType=(e:React.ChangeEvent<HTMLSelectElement> )=>{
         router.push(`/series?type=${e.target.value}`);
     }
