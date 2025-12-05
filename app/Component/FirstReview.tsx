@@ -5,8 +5,8 @@ export default function FirstReview({ reviews }: any) {
   const firstReview = reviews?.[0];  
 
   return (
-    <div className="p-4 flex flex-col items-start justify-center ">
-      <h2 className="font-bold my-2 text-xl text-white">Reviews</h2>
+    <div className="flex flex-col items-start justify-center w-full ">
+      <h2 className="md:w-[15rem] text-right font-bold my-2 text-xl text-white">Reviews</h2>
       <div>
       {firstReview ? (
         <ReviewCard key={firstReview.id} review={firstReview} />

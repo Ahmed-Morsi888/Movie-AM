@@ -66,6 +66,7 @@ export default function SwiperComponent({ baseurl, header, page = 1 }: Propertis
                     <Image
                       src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                       alt={movie.title || "Movie poster"}
+                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       fill
                       loading="lazy"
                       className="rounded-xl object-fit"

@@ -22,13 +22,13 @@ async function MovieId({params}: Props) {
 const reviewsData = await reviews.json();
    
   return (
-<div className='w-full h-full bg-gray-900 pt-4 pb-4'>
+<div className='w-full h-full bg-gray-900 pt-4 pb-4 px-4 gap-4'>
     <div className='flex w-full flex-col  md:flex-row md:mx-auto min-h-[26rem]  md:justify-between md:items-center  md:gap-4 '>
         <div className='flex flex-col px-2  h-full w-full  md:w-1/4 '>
              <div>
         <h1 className='text-white text-2xl font-bold '>{data.title}</h1>
         </div>
-        <div className='flex ms-2'>
+        <div className='flex ms-2 gap-4'>
         <p className="text-gray-300">
   <span>{data.release_date?.slice(0, 4)}</span> . 
   <span>{data.status?.slice(0, 1).toUpperCase()}</span> . 
@@ -105,7 +105,7 @@ const reviewsData = await reviews.json();
                   </div>
 
                   
-                    <div className='flex flex-col justify-around mt-4 md:mt-0  h-90 md:w-1/4 w-full mx-auto'>
+                    <div className=' rounded-lg  flex flex-col justify-around mt-4 md:mt-0  h-90 md:w-1/4 w-full mx-auto'>
                    <div className='flex  items-center w-full justify-center  '>
 
                    
@@ -152,9 +152,9 @@ const reviewsData = await reviews.json();
     </div>
     <div className='w-full  flex flex-col items-center '>
 
-    <FirstReview reviews={reviewsData.results} />
+    <FirstReview reviews={reviewsData.results} /> 
  {reviewsData.results?.length > 1 && (
-   <Link href={`/Reviews/${params.movieId}`} className="text-blue-400  mt-2  px-4">
+   <Link href={`/Reviews/${params.movieId}`} className="text-blue-400  my-2  ">
     See all comments
   </Link>
 )}

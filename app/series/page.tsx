@@ -2,8 +2,14 @@ import React from 'react'
 import TypeOfSeries from '../Component/TypeOfSeries'
 import Image from 'next/image';
 import Link from "next/link";
+interface SeriesProps {
+  searchParams: {
+    type?: string;
+    page?: string;
+  };
+}
 
-async function Series({ searchParams }: any) {
+async function Series({ searchParams }: SeriesProps) {
   
   const type = searchParams?.type || "popular";
 let page=Number(searchParams?.page) || 1;
@@ -56,24 +62,24 @@ let page=Number(searchParams?.page) || 1;
 
       
       {page > 1 && (
-        <a
+        <Link
           href={`/series?&type=${type}&page=${page - 1}`}
           className="px-4 py-2 bg-gray-400 text-black rounded-lg"
         >
           Previous
-        </a>
+        </Link>
       )}
 
       
       <span className="font-semibold">{page}</span>
 
       
-      <a
+      <Link
         href={`/series?&type=${type}&page=${page + 1}`}
         className="px-4 py-2 bg-gray-400 text-black rounded-lg"
       >
         Next
-      </a>
+      </Link>
     </div>    </div>
   )
 }

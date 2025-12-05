@@ -154,7 +154,7 @@ const reviewsData = await reviews.json();
 
     <FirstReview reviews={reviewsData.results} />
  {reviewsData.results?.length > 1 && (
-   <Link href={`/Reviews/${params.seriesId}`} className="text-blue-400  mt-2  px-4">
+   <Link href={`/Reviews/${params.seriesId}`} className="text-blue-400  my-2  px-4">
     See all comments
   </Link>
 )}
