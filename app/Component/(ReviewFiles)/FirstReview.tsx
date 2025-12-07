@@ -1,5 +1,5 @@
 "use client";
-import ReviewCard from "../Component/ReviewCard";
+import ReviewCard from "../(ReviewFiles)/ReviewCard";
 
 export default function FirstReview({ reviews }: any) {
   const firstReview = reviews?.[0];  

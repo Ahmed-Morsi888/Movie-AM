@@ -2,17 +2,13 @@ import React from 'react'
 import TypeOfSeries from '../Component/TypeOfSeries'
 import Image from 'next/image';
 import Link from "next/link";
-interface SeriesProps {
-  searchParams: {
-    type?: string;
-    page?: string;
-  };
-}
+import {SerId ,SeriesProps } from "../Types"
 
-async function Series({ searchParams }: SeriesProps) {
+
+async function Series({ searchParams }: SerId) {
   
   const type = searchParams?.type || "popular";
-let page=Number(searchParams?.page) || 1;
+const page=Number(searchParams?.page) || 1;
   let data;
 
   if (type === "trending") {
@@ -33,18 +29,19 @@ let page=Number(searchParams?.page) || 1;
     );
     data = await res.json();
   }
-
+  
   return (
     <div className="bg-gray-900 min-h-screen p-4">
       <TypeOfSeries classname='mt-2' />
 
-      <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-4 mt-2">
-        {data.results?.map((series: any) => (
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-2">
+        {data.results?.map((series: SeriesProps) => (
           <Link key={series.id} href={`/series/${series.id}`}>
             <div className="p-4 flex flex-col">
               
               <div className="w-full h-80 relative">
                 <Image
+                  className='rounded-lg'
                   src={`https://image.tmdb.org/t/p/w500${series.poster_path}`}
                   alt={series.name || "Series poster"}
                   fill

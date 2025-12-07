@@ -1,5 +1,5 @@
 "use client";
-import ReviewCard from "./ReviewCard";
+import ReviewCard from "../(ReviewFiles)/ReviewCard";
 
 export default function ReviewsList({ reviews }: any) {
   return (

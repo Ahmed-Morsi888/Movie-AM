@@ -2,8 +2,9 @@ import React from 'react'
 import TypeOfFilms from '../Component/TypeOfFilms'
 import Image from 'next/image';
 import Link from "next/link";
+import {MoviesProps,SearchParamsProps} from "../Types";
 
-async function Movies({ searchParams }: any) {
+async function Movies({ searchParams }: SearchParamsProps) {
   const type = searchParams?.type || "popular";
 const page=Number(searchParams?.page) || 1;   
   let data;
@@ -26,18 +27,20 @@ const page=Number(searchParams?.page) || 1;
     );
     data = await res.json();
   }
+  
 
   return (
-    <div className="bg-gray-900 min-h-screen p-4">
+    <div className="bg-gray-900 min-h-screen p-4 ">
       <TypeOfFilms classname='mt-2' />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-2">
-        {data.results?.map((movie: any) => (
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-2 ">
+        {data.results?.map((movie: MoviesProps) => (
           <Link key={movie.id} href={`/movies/${movie.id}`}>
             <div className="p-4 flex flex-col">
               
-              <div className="w-full h-80 relative">
+              <div className="w-full h-80 relative ">
                 <Image
+                className='rounded-lg'
                   src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                   alt={movie.title || "Movie poster"}
                   fill

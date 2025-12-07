@@ -1,11 +1,8 @@
 import React from "react";
-import ReviewCard from "../../Component/ReviewCard";
+import ReviewCard from "../../Component/(ReviewFiles)/ReviewCard";
+import {Props,ReviewType} from "../../Types";
 
-interface Props {
-  params: {
-    ReviewId: string;
-  };
-}
+
 
 async function Page({ params }: Props) {
   console.log(params.ReviewId);
@@ -15,7 +12,7 @@ return(<div className="p-4">
         <h2 className='font-bold my-2 text-xl text-white'>Reviews</h2>
  
         {reviewsData.results?.length > 0 ? (
-          reviewsData.results.map((review: any) => (
+          reviewsData.results.map((review: ReviewType) => (
             <ReviewCard key={review.id} review={review} />
           ))
         ) : (

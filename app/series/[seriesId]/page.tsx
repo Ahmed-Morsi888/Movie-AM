@@ -4,7 +4,7 @@ import React from "react";
 import { FaStar } from 'react-icons/fa';
 import SmallSwiper from "./SmallSwiper";
 import Link from 'next/link';
-import FirstReview from '@/app/Component/FirstReview';
+import FirstReview from '@/app/Component/(ReviewFiles)/FirstReview';
 interface Props {
   params: {
     seriesId: string
@@ -57,7 +57,7 @@ const reviewsData = await reviews.json();
                     <div >
                     <h2 className='text-gray-100 text-sm md:text-md font-bold  py-2 bg-gray-800 rounded-lg p-2 mb-2'>Production Companies
                      : <span className='text-gray-300'>{data.production_companies
-                     .map((production: any)=>production.name ).join(", ") }  </span></h2>
+                     .map((production:{name:string})=>production.name ).join(", ") }  </span></h2>
       
                     </div>
                     <div >
@@ -97,7 +97,7 @@ const reviewsData = await reviews.json();
   </h2>
   <div >
                     <h2 className='text-gray-100 text-md font-bold  py-2 bg-gray-800 rounded-lg p-2 mb-2'>Genres
-                     : <span className='text-gray-300'>{data.genres.map((gen: any)=>gen.name ).join(" , ") }  </span></h2>
+                     : <span className='text-gray-300'>{data.genres.map((gen: {name:string})=>gen.name ).join(" , ") }  </span></h2>
       
                     </div>
                      

@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-
-export default function ReviewCard({ review }: any) {
+import {ReviewType} from "../../Types";
+export default function ReviewCard({ review }:{review:ReviewType} ) {
   const MAX_LENGTH = 200;
   const [showFull, setShowFull] = useState(false);
 

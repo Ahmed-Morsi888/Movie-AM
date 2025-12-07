@@ -3,18 +3,18 @@ import { useSearchParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 
 function TypeOfSeries({classname}:{classname?:string}) {
-  let menu=[
+  const menu=[
     {value:"discover", label:"All Series"},
     {value:"popular", label:"popular"},
     {value:"top_rated", label:"Top rated"},
     {value:"airing_today", label:"Airing Today"},
     {value:"trending", label:"Trending"},
   ]
-    let router = useRouter();
+    const router = useRouter();
 
-    let params=useSearchParams();
+    const params=useSearchParams();
     
-    let type=params.get('type')||"discover";
+    const type=params.get('type')||"discover";
     
     const handelChangeType=(e:React.ChangeEvent<HTMLSelectElement> )=>{
         router.push(`/series?type=${e.target.value}`);

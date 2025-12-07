@@ -4,13 +4,10 @@ import React from "react";
 import { FaStar } from 'react-icons/fa';
 import SmallSwiper from "./SmallSwiper";
 import Link from 'next/link';
-import FirstReview from '@/app/Component/FirstReview';
-interface Props {
-  params: {
-    movieId: string
-  }
-}
-async function MovieId({params}: Props) {
+import FirstReview from '@/app/Component/(ReviewFiles)/FirstReview';
+import {MovId} from "../../Types"
+
+async function MovieId({params}: MovId) {
     const res=await fetch(`https://api.themoviedb.org/3/movie/${params.movieId}?api_key=a5c13fc09b1950b338b046e79ea8e6b1`);
     const data= await res.json();   
      
@@ -57,7 +54,7 @@ const reviewsData = await reviews.json();
                     <div >
                     <h2 className='text-gray-100 text-sm md:text-md font-bold  py-2 bg-gray-800 rounded-lg p-2 mb-2'>Production Companies
                      : <span className='text-gray-300'>{data.production_companies
-                     .map((production: any)=>production.name ).join(", ") }  </span></h2>
+                     .map((production:{name:string})=>production.name ).join(", ") }  </span></h2>
       
                     </div>
                     <div >
@@ -97,7 +94,7 @@ const reviewsData = await reviews.json();
   </h2>
   <div >
                     <h2 className='text-gray-100 text-md font-bold  py-2 bg-gray-800 rounded-lg p-2 mb-2'>Genres
-                     : <span className='text-gray-300'>{data.genres.map((gen: any)=>gen.name ).join(" , ") }  </span></h2>
+                     : <span className='text-gray-300'>{data.genres.map((gen: {name:string})=>gen.name ).join(" , ") }  </span></h2>
       
                     </div>
                      
