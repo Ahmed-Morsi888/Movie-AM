@@ -21,7 +21,10 @@ interface Movie {
 export default function SwiperComponent({ baseurl, header, page = 1 }: Propertise) {
   const [movies, setMovies] = useState<Movie[]>([]);
 
-  async function fetchMovies() {
+  
+
+  useEffect(() => {
+   async function fetchMovies() {
     try {
       const res = await fetch(
         `${baseurl}api_key=a5c13fc09b1950b338b046e79ea8e6b1&page=${page}`,
@@ -37,9 +40,8 @@ export default function SwiperComponent({ baseurl, header, page = 1 }: Propertis
       console.log(error);
     }
   }
+  fetchMovies();
 
-  useEffect(() => {
-    fetchMovies();
   }, []);
 
   return (

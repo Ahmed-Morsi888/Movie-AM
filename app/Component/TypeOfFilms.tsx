@@ -2,7 +2,7 @@
 import { useSearchParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 
-function typeOfFilm({classname}:{classname?:string}) {
+function TypeOfFilm({classname}:{classname?:string}) {
   const menu=[
     {value:"discover", label:"All movies"},
     {value:"popular", label:"popular"},
@@ -38,4 +38,4 @@ function typeOfFilm({classname}:{classname?:string}) {
 }
 
 
-export default typeOfFilm;
+export default TypeOfFilm;

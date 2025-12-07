@@ -1,7 +1,8 @@
 "use client";
 import ReviewCard from "../(ReviewFiles)/ReviewCard";
+import {ReviewType} from "../../Types";
 
-export default function FirstReview({ reviews }: any) {
+export default function FirstReview({ reviews }: { reviews: ReviewType[] }) {
   const firstReview = reviews?.[0];  
 
   return (

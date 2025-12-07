@@ -49,7 +49,7 @@ const reviewsData = await reviews.json();
                     
                     </div>
                     <div >
-                    <h2 className='text-gray-100 text-sm md:text-md font-bold  py-2 flex justify-between items-center bg-gray-800 rounded-lg p-2 mb-2'><span className='text-white'>Languages :  <span className='text-gray-300'> {data.original_language}</span> </span><span className='text-gray-300'><span className='text-white'>Production Countries : {data.production_countries.map((production: any) => production.name).join(", ")}</span></span></h2>
+                    <h2 className='text-gray-100 text-sm md:text-md font-bold  py-2 flex justify-between items-center bg-gray-800 rounded-lg p-2 mb-2'><span className='text-white'>Languages :  <span className='text-gray-300'> {data.original_language}</span> </span><span className='text-gray-300'><span className='text-white'>Production Countries : {data.production_countries.map((production: {name:string}) => production.name).join(", ")}</span></span></h2>
                     </div>
                     <div >
                     <h2 className='text-gray-100 text-sm md:text-md font-bold  py-2 bg-gray-800 rounded-lg p-2 mb-2'>Production Companies
