@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { SearchFilter } from "../Types";
@@ -55,7 +54,7 @@ const fetchData = async (searchTerm: string) => {
       ["movie", "tv"].includes(item.media_type)
     );
 
-    setResults(filtered || []);
+   setResults(filtered || []);
     setOpen(true);
   } finally {
     setLoading(false);
@@ -63,7 +62,7 @@ const fetchData = async (searchTerm: string) => {
 };
 
 return (
-  <div ref={boxRef} className="w-full md:w-[17rem] relative">
+  <div ref={boxRef} className="w-full md:w-[14em] relative">
 
     {/* Input */}
     <input
