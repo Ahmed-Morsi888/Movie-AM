@@ -42,7 +42,7 @@ export default function SwiperComponent({ baseurl, header, page = 1 }: Propertis
   }
   fetchMovies();
 
-  }, []);
+  }, [baseurl, page]);
 
   return (
     <div className="p-4">

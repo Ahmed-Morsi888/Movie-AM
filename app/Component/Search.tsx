@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { SearchFilter } from "../Types";
+import Image from "next/image";
 function Search() {
 const [query, setQuery] = useState("");
 const [results, setResults] = useState<SearchFilter[]>([]);
@@ -13,8 +14,8 @@ const boxRef = useRef<HTMLDivElement>(null);
 // Close On Click Outside
 // -----------------------------
 useEffect(() => {
-  const handler = (e: any) => {
-    if (boxRef.current && !boxRef.current.contains(e.target)) {
+  const handler = (e: MouseEvent) => {
+    if (boxRef.current && !boxRef.current.contains(e.target as Node)) {
       setOpen(false);
       
     }
@@ -111,10 +112,12 @@ return (
             <Link href={link} key={item.id}>
               <li className="flex p-3 items-center gap-3 border-b border-gray-700 hover:bg-gray-700 cursor-pointer">
 
-                <img
+                <Image
                   src={img}
                   className="w-12 h-16 object-cover rounded"
-                  alt=""
+                  alt={item.title || "Poster image"}
+                  width={40}
+                  height={58}
                 />
 
                 <div>
