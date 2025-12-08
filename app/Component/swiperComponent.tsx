@@ -46,7 +46,7 @@ export default function SwiperComponent({ baseurl, header, page = 1 }: Propertis
 
   return (
     <div className="p-4">
-      <h2 className="text-white text-2xl font-bold mb-4">{header}</h2>
+      <h2 className="text-white text-2xl font-bold pb-4 ps-4">{header}</h2>
 
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}

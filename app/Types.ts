@@ -37,3 +37,11 @@ export interface MoviesProps{
     page?:string
   }
 }
+export interface SearchFilter{
+    id:number;
+    media_type:string;
+    title?:string;
+    name?:string;
+    poster_path?:string;
+    vote_average?:number;
+}

@@ -5,7 +5,7 @@ export default function Hero() {
   
 
   return <>
-  <div className='w-full h-full bg-gray-900'>
+  <div className='w-full h-full bg-gray-900 py-4'>
 <SwiperComponent baseurl="https://api.themoviedb.org/3/discover/movie?" header="All Movies"/>
 <SwiperComponent baseurl="https://api.themoviedb.org/3/trending/movie/day?" header="Trending"/>
 <SwiperComponent baseurl="https://api.themoviedb.org/3/trending/all/day?" header="Trending Today"/>
