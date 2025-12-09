@@ -33,3 +33,16 @@ body {
   background: #9CA3AF;
   color: rgb(0, 0, 0,.8);
 }
+.bgOpacity{
+
+background-color:  rgb(156, 163, 175, 0.7);
+}
+*{
+  max-width: 100%;
+  box-sizing: border-box;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  
+}

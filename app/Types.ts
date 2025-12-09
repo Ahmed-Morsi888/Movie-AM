@@ -10,10 +10,11 @@ export interface ReviewType{
     author:string,
     created_at:number
 }
+
 export interface MovId {
-  params: {
+  params: Promise<{
     movieId: string
-  }
+  }>
 }
 export interface SerId {
   searchParams: {

@@ -45,13 +45,14 @@ export default function SmallSwiper({ imgData, size = "large" }: Props) {
       {imgData?.backdrops?.length > 0 ? (
         imgData.backdrops.map((imge, i) => (
           <SwiperSlide key={i}>
-            <div className={`relative ${containerClasses}  h-70`}>
+            <div className={`relative ${containerClasses}  h-84`}>
               <Image
                 src={`https://image.tmdb.org/t/p/w780${imge.file_path}`}
                 alt="Movie backdrop"
                 fill
+                 sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                 loading="lazy"
-                className="rounded-xl object-cover"
+                className="rounded-lg object-cover"
               />
             </div>
           </SwiperSlide>
