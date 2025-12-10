@@ -24,7 +24,7 @@ export default function RateWrapper({ movieId }: { movieId: string }) {
 
             <button 
               onClick={() => setOpen(false)} 
-              className="absolute top-[-65]  right-8 md:right-90 lg:right-70 md:top-[-120] text-white text-2xl cursor-pointer"
+              className="absolute top-[-65]  right-8 md:right-90 lg:right-100 md:top-[-120] text-white text-2xl cursor-pointer"
             >
               ✕
             </button>
