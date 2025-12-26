@@ -1,5 +1,5 @@
 "use client"
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import Search from '../Component/Search'
 import { CiSearch } from "react-icons/ci";
@@ -17,6 +17,16 @@ import { Menu,X } from 'lucide-react';
   ]
   const belref=useRef<HTMLDivElement>(null);
   const pathname=usePathname();
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (belref.current && !belref.current.contains(e.target as Node)) {
+        setShowNotifications(false);
+        
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
   return <>
   <nav className='bg-gray-700 flex justify-between items-center py-3 px-6 fixed top-0 left-0 z-100 w-full '>
     <section className={` ${searchMode ? '' : 'hidden' } w-full md:hidden gap-4 md:w-auto flex justify-between items-center `}>
@@ -88,12 +98,16 @@ import { Menu,X } from 'lucide-react';
     <div className='w-6 h-6 rounded-full absolute bottom-8 right-0 bg-blue-500 flex justify-center items-center'>
       <span className='text-sm text-white'>2</span>
     </div>
-
-    <FaRegBell 
-    ref={belref}
-    onClick={()=> setShowNotifications(!showNotifications)}
+<div ref={belref}>
+<FaRegBell 
+    
+    onClick={()=> setShowNotifications(!showNotifications)
+    
+    }
     className="text-xl cursor-pointer font-bold text-white"/>
 
+</div >
+    
    {showNotifications && (
   <div
     className="flex flex-col justify-center items-start gap-4 fixed w-[250px] bg-gray-500 p-2 rounded-lg shadow-lg z-[9999] "

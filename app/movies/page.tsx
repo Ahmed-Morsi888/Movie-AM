@@ -2,7 +2,7 @@ import React from 'react'
 import TypeOfFilms from '../Component/TypeOfFilms'
 import Image from 'next/image';
 import Link from "next/link";
-import {MoviesProps,SearchParamsProps ,Movie} from "../Types";
+import {SearchParamsProps ,Movie} from "../Types";
 
 async function Movies({ searchParams }: SearchParamsProps) {
 const type = searchParams?.type || "popular";

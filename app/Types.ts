@@ -47,11 +47,7 @@ export interface SeriesProps{
   first_air_date:number;
   original_language:string
   }
-export interface MoviesProps{
-    id:number,
-    poster_path:string,
-    title:string
-  }
+
   export interface SearchParamsProps{
   searchParams:{
     type?:string,
