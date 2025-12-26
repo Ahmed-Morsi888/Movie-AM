@@ -69,7 +69,7 @@ export default function SwiperComponent({ baseurl, header, page = 1 }: Propertis
                     <div className="flex flex-col justify-center items-center">
                       <div className="text-sm font-bold  py-2 w-full text-center">{movie.title|| movie.name}</div>
                       <div className="flex justify-center items-center gap-2 py-2 ">
-                      <span className="px-2 py-1 bg-gray-400 rounded-full text-sm   ">{movie.release_date?.slice(0, 4) ||movie.first_air_date?.slice(0, 4) }</span>
+                      <span className="px-2 py-1 bg-gray-400 rounded-full text-sm   ">{movie.release_date?.slice(0, 4) || movie.first_air_date?.slice(0, 4) }</span>
                       <span className="px-2 py-1 bg-gray-400 rounded-full text-sm   ">{movie.original_language}</span>
                       <span className="px-2 py-1 bg-gray-400 rounded-full text-sm   ">{
                         movie.adult? "+18":"+12"}</span>
