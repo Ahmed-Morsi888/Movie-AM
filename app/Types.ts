@@ -44,7 +44,7 @@ export interface SeriesProps{
   vote_average:number;
   runtime:number;
   release_date:string;
-  first_air_date:number;
+  first_air_date:string;
   original_language:string
   }
 
