@@ -105,7 +105,7 @@ import { Menu,X } from 'lucide-react';
     <div className=' border-b-2  border-amber-800 w-full'>
  <div className='flex justify-between items-center w-full'>
       <div className=' flex justify-center items-center gap-2'>
-      <div className='flex justify-center items-center text-2xl font-bold w-10 h-10 bg-gray-100 text-red-600 rounded-full'>U </div>
+      <div className='flex justify-center items-center text-2xl font-bold w-10 h-10 bg-gray-100 text-red-600 rounded-full'>N</div>
       <span className='text-gray-100 text-md  '>Netflix</span>
       </div>
        <div>
@@ -119,7 +119,7 @@ import { Menu,X } from 'lucide-react';
        <div className=' border-b-2  border-amber-800 w-full'>
  <div className='flex justify-between items-center w-full'>
       <div className=' flex justify-center items-center gap-2'>
-      <div className='flex justify-center items-center text-2xl font-bold w-10 h-10 bg-gray-100 text-red-600 rounded-full'>U </div>
+      <div className='flex justify-center items-center text-2xl font-bold w-10 h-10 bg-gray-100 text-red-600 rounded-full'>C</div>
       <span className='text-gray-100 text-md  '>Cinema AM</span>
       </div>
        <div>
@@ -141,15 +141,3 @@ import { Menu,X } from 'lucide-react';
   </nav>
   </>
 }
-// return<>
-// <nav className='w-full py-4 px-4 bg-gray-600 flex justify-between items-center'>
-//   <section className=' flex justify-center items-center '>
-// <div className='flex justify-center items-center'>
-// <h1 className='text-2xl font-bold'><span className=''>Cinema</span><span className='text-red-600'>AM</span></h1>
-// </div>
-// <div>{}</div>
-//   </section>
-
-
-// </nav>
-// </>

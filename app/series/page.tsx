@@ -43,10 +43,23 @@ return (
                 alt={series.name || "Series poster"}
                 fill
               />
+               <div className="p-2 absolute inset-0 bg-black/90 flex flex-col justify-between opacity-0 hover:opacity-100 transition-opacity duration-300
+">
+                    <div className="w-10 h-10 border-3 border-amber-200 rounded-full flex justify-center items-center "> 
+                    <span>{series.vote_average.toFixed(1)}</span>
+                    </div>
+                    <div className="flex flex-col justify-center items-center">
+                      <div className="text-sm font-bold  py-2 w-full text-center">{ series.name}</div>
+                      <div className="flex justify-center items-center gap-2 py-2 ">
+                      <span className="px-2 py-1 bg-gray-400 rounded-full text-sm   ">{series.release_date?.slice(0, 4) ||series.first_air_date?.slice(0, 4) }</span>
+                      <span className="px-2 py-1 bg-gray-400 rounded-full text-sm   ">{series.original_language}</span>
+                      <span className="px-2 py-1 bg-gray-400 rounded-full text-sm   ">{
+                        series.adult? "+18":"+12"}</span>
+                      </div>
+                    </div>
+                    </div>
             </div>
-            <div className="py-4 px-2 bg-gray-700 text-white rounded text-md font-bold">
-              {series.name.split(" ").slice(0, 4).join(" ")}
-            </div>
+            
           </div>
         </Link>
       ))}

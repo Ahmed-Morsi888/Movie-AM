@@ -4,18 +4,8 @@ import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import {Movie,Propertise} from "../Types"
 
-interface Propertise {
-  baseurl: string;
-  header: string;
-  page?: number;
-}
-
-interface Movie {
-  id: number;
-  title: string;
-  poster_path: string;
-}
 
 export default function SwiperComponent({ baseurl, header, page = 1 }: Propertise) {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -40,6 +30,7 @@ export default function SwiperComponent({ baseurl, header, page = 1 }: Propertis
   fetchMovies();
 
   }, [baseurl, page]);
+
 
   return (
     <div className="p-4">
@@ -68,8 +59,23 @@ export default function SwiperComponent({ baseurl, header, page = 1 }: Propertis
                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       fill
                       loading="lazy"
-                      className="rounded-xl object-fit"
+                      className="rounded-xl object-cover"
                     />
+                    <div className="p-2 absolute inset-0 bg-black/90 flex flex-col justify-between opacity-0 hover:opacity-100 transition-opacity duration-300
+">
+                    <div className="w-10 h-10 border-3 border-amber-200 rounded-full flex justify-center items-center "> 
+                    <span>{movie.vote_average.toFixed(1)}</span>
+                    </div>
+                    <div className="flex flex-col justify-center items-center">
+                      <div className="text-sm font-bold  py-2 w-full text-center">{movie.title|| movie.name}</div>
+                      <div className="flex justify-center items-center gap-2 py-2 ">
+                      <span className="px-2 py-1 bg-gray-400 rounded-full text-sm   ">{movie.release_date?.slice(0, 4) ||movie.first_air_date?.slice(0, 4) }</span>
+                      <span className="px-2 py-1 bg-gray-400 rounded-full text-sm   ">{movie.original_language}</span>
+                      <span className="px-2 py-1 bg-gray-400 rounded-full text-sm   ">{
+                        movie.adult? "+18":"+12"}</span>
+                      </div>
+                    </div>
+                    </div>
                   </div>
                 </Link>
               </SwiperSlide>

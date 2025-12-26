@@ -16,6 +16,19 @@ export interface MovId {
     movieId: string
   }>
 }
+ export interface Movie {
+  name:string
+  adult:string;
+  id: number;
+  title: string;
+  poster_path: string;
+  vote_average:number;
+  runtime:number;
+  release_date:string;
+  first_air_date:number;
+  original_language:string
+}
+
 export interface SerId {
   searchParams: {
     type?: string;
@@ -23,9 +36,16 @@ export interface SerId {
   };
 }
 export interface SeriesProps{
-    id:number,
-    poster_path:string,
-    name:string
+   name:string
+  adult:string;
+  id: number;
+  title: string;
+  poster_path: string;
+  vote_average:number;
+  runtime:number;
+  release_date:string;
+  first_air_date:number;
+  original_language:string
   }
 export interface MoviesProps{
     id:number,
@@ -45,4 +65,9 @@ export interface SearchFilter{
     name?:string;
     poster_path?:string;
     vote_average?:number;
+}
+export interface Propertise {
+  baseurl: string;
+  header: string;
+  page?: number;
 }
