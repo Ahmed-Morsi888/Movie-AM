@@ -13,6 +13,7 @@ interface Props {
 async function SeriesID({params}: Props) {
     const res=await fetch(`https://api.themoviedb.org/3/tv/${params.seriesId}?api_key=a5c13fc09b1950b338b046e79ea8e6b1`);
     const data= await res.json();   
+     console.log(data);
      
      const img=await fetch(`https://api.themoviedb.org/3/tv/${params.seriesId}/images?api_key=a5c13fc09b1950b338b046e79ea8e6b1`);
     const imgData= await img.json(); 
@@ -26,13 +27,13 @@ const reviewsData = await reviews.json();
     <div className='flex w-full flex-col  md:flex-row md:mx-auto min-h-[26rem]  md:justify-between md:items-center  md:gap-4 '>
         <div className='flex flex-col px-2  h-full w-full  md:w-1/4 '>
              <div>
-        <h1 className='text-white text-2xl font-bold '>{data.title}</h1>
+        <h1 className='text-white text-2xl font-bold '>{data.original_name}</h1>
         </div>
         <div className='flex ms-2'>
         <p className="text-gray-300">
-  <span>{data.release_date?.slice(0, 4)}</span> . 
+  <span>{data.first_air_date?.slice(0, 4)}</span> . 
   <span>{data.status?.slice(0, 1).toUpperCase()}</span> . 
-  <span>{Math.floor(data.runtime / 60)}h {data.runtime % 60}m</span>
+  <span>{data.number_of_seasons} Seasons</span>
 </p>
 
           </div>
