@@ -36,10 +36,10 @@ import { Menu,X } from 'lucide-react';
     <section className={` ${searchMode ? 'hidden' : ''} flex items-center md:gap-6 justify-center w-full md:justify-start   `}>
 
 
-<div className={`text-2xl font-bold ${open ? "hidden": "block"} `}>
+<div className={`text-2xl font-bold z-99 ${open ? "hidden": "block"}  ` } >
         <Link href="/">
         
-        <h1><span className='text-white '>Cinema</span ><span className='text-red-700'>AM</span></h1>
+        <h1><span className='text-white'>Cinema</span ><span className='text-red-700'>AM</span></h1>
         
         </Link>
         
@@ -71,9 +71,9 @@ import { Menu,X } from 'lucide-react';
         
     <ul className={`bg-gray-700 md:hidden overflow-hidden transition-[max-height] duration-300 ease-in-out  ${open ? "max-h-64" : "max-h-0"} flex flex-col items-center justify-center rounded-lg mt-2 gap-4 w-full`}>
         <div className='text-2xl font-bold'>
-        <Link href="/">
+        <Link href="/" onClick={()=> setOpen(false)}>
         
-        <h1><span className='text-white '>Cinema</span ><span className='text-red-700'>AM</span></h1>
+        <h1><span className='text-white'>Cinema</span ><span className='text-red-700'>AM</span></h1>
         
         </Link>
         
