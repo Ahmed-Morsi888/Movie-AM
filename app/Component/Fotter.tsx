@@ -8,11 +8,9 @@ export const Fotter = () => {
   <footer className='mt-auto w-full mx-auto  flex flex-col bg-gray-800 pt-[20px]'>
     
     <ul className='flex justify-center items-center gap-6 font-medium text-md text-white'>
-            <li className='hover:text-gray-400'> <Link href="/">Home</Link></li>
-            <li className='hover:text-gray-400' > <Link href="/movies">movies</Link></li>
-            <li className='hover:text-gray-400' > <Link href="/popular">Popular</Link></li>
-            <li className='hover:text-gray-400' > <Link href="/my-list">My List</Link></li>
-            <li className='hover:text-gray-400' > <Link href="/series">Series</Link></li>
+            <li className='hover:text-gray-400 font-bold'> <Link href="/">Home</Link></li>
+            <li className='hover:text-gray-400 font-bold' > <Link href="/movies">Movies</Link></li>
+            <li className='hover:text-gray-400 font-bold' > <Link href="/series">Series</Link></li>
         </ul>
 
         <div className='text-2xl w-full text-center mt-[20px] font-bold'>
